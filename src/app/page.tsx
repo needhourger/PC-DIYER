@@ -1,11 +1,12 @@
-import { Button } from "antd";
+import PageHeader from "@/components/pageHeader";
+import { Button, Layout } from "antd";
+import { Content, Footer, Header } from "antd/es/layout/layout";
 import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="w-full h-full justify-center">
-      <h1>Hello world</h1>
-      <Button type="primary">Antd button</Button>
-    </div>
+    <Layout className="w-full">
+      <PageHeader />
+    </Layout>
   );
 }
