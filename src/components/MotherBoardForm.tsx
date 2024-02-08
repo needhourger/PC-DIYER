@@ -5,8 +5,8 @@ import { cpuManufacturer } from "@/libs/data";
 
 export default function MotherBoardForm() {
   return (
-    <div>
-      <h1>Mother Board</h1>
+    <div className="p-3 border rounded-md border-dotted">
+      <h1 className="py-3 text-lg font-bold">Mother Board</h1>
       <Form labelCol={{ span: 6 }}>
         <Row gutter={0}>
           <Col span={6}>
@@ -35,6 +35,11 @@ export default function MotherBoardForm() {
             <FormItem label="Model" name="model" labelCol={{ span: 2 }}>
               <Input />
             </FormItem>
+          </Col>
+        </Row>
+        <Row>
+          <Col span={22} offset={2}>
+            <CPUForm no={1} />
           </Col>
         </Row>
       </Form>
