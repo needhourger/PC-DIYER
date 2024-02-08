@@ -1,4 +1,4 @@
-import type { ThemeConfig } from "antd";
+import { type ThemeConfig } from "antd";
 
 const theme: ThemeConfig = {
   token: {
@@ -8,6 +8,7 @@ const theme: ThemeConfig = {
     colorBgBase: "#1a1325",
     colorBorder: "#cda8f0",
     colorBgContainer: "#301c4d",
+    controlItemBgActive: "#854eca",
   },
   components: {},
 };
