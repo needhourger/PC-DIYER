@@ -38,7 +38,7 @@ export default function MotherBoardForm() {
           </Col>
         </Row>
         <Row>
-          <Col span={22} offset={2}>
+          <Col span={23} offset={2}>
             <CPUForm no={1} />
           </Col>
         </Row>

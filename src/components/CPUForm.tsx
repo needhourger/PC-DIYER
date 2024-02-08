@@ -7,5 +7,11 @@ interface Props {
 }
 
 export default function CPUForm(props: Props) {
-  return <h1>CPU</h1>;
+  return (
+    <div>
+      <div className="me-3">
+        CPU <span className="px-2 rounded-md bg-green-600">{props.no}</span>
+      </div>
+    </div>
+  );
 }
