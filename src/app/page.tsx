@@ -1,5 +1,5 @@
-import CPUForm from "@/components/CPUForm";
 import Description from "@/components/Description";
+import MotherBoardForm from "@/components/MotherBoardForm";
 import PageHeader from "@/components/PageHeader";
 import { Button, Layout } from "antd";
 import { Content, Footer, Header } from "antd/es/layout/layout";
@@ -13,8 +13,7 @@ export default function Home() {
         <Description />
       </div>
       <div className="px-10 bg-black h-50">
-        <h1>DIY</h1>
-        <CPUForm no={1} />
+        <MotherBoardForm />
       </div>
     </Layout>
   );
