@@ -9,6 +9,7 @@ const theme: ThemeConfig = {
     colorBorder: "#cda8f0",
     colorBgContainer: "#301c4d",
     controlItemBgActive: "#854eca",
+    colorBorderSecondary: "#336774",
   },
   components: {},
 };
