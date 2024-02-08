@@ -5,7 +5,7 @@ export default function MotherBoardForm() {
   return (
     <Form>
       <FormItem label="Socket Type" name="socketType">
-        <Select options={}></Select>
+        <Select></Select>
       </FormItem>
     </Form>
   );

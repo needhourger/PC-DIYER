@@ -1,6 +1,6 @@
-import CPUForm from "@/components/cpuForm";
-import Description from "@/components/description";
-import PageHeader from "@/components/pageHeader";
+import CPUForm from "@/components/CPUForm";
+import Description from "@/components/Description";
+import PageHeader from "@/components/PageHeader";
 import { Button, Layout } from "antd";
 import { Content, Footer, Header } from "antd/es/layout/layout";
 import Image from "next/image";
@@ -14,7 +14,7 @@ export default function Home() {
       </div>
       <div className="px-10 bg-black h-50">
         <h1>DIY</h1>
-        <CPUForm />
+        <CPUForm no={1} />
       </div>
     </Layout>
   );
