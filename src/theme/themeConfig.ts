@@ -7,7 +7,6 @@ const theme: ThemeConfig = {
     colorTextBase: "#f0f0f0",
     colorBgBase: "#1a1325",
     colorBorder: "#cda8f0",
-    colorBgContainer: "#301c4d",
     controlItemBgActive: "#854eca",
     colorBorderSecondary: "#336774",
   },
