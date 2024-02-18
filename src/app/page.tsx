@@ -40,6 +40,12 @@ export default function Home() {
     console.log(form);
   };
 
+  const handleCpuRemove = (id: number) => {
+    let newList = [...form.cpus];
+    newList = newList.filter((item) => item.id !== id);
+    setForm({ ...form, cpus: newList });
+  };
+
   return (
     <Layout className="w-full">
       <PageHeader />
@@ -49,9 +55,14 @@ export default function Home() {
       <div className="px-10 bg-black h-50">
         <MotherBoardForm />
         {form.cpus.map((cpu) => (
-          <CPUForm key={cpu.id} cpu={cpu} onChange={handleCpuChange} />
+          <CPUForm
+            key={cpu.id}
+            cpu={cpu}
+            onChange={handleCpuChange}
+            onRemove={handleCpuRemove}
+          />
         ))}
-        <div className="flex justify-end">
+        <div className="flex justify-center">
           <Button type="primary" onClick={handleAddCpu}>
             Add CPU
           </Button>

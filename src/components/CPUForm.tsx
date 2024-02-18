@@ -8,6 +8,7 @@ import { useEffect, useState } from "react";
 interface Props {
   cpu: CPUData;
   onChange: Function;
+  onRemove: Function;
 }
 
 export default function CPUForm(props: Props) {
@@ -24,7 +25,7 @@ export default function CPUForm(props: Props) {
   };
 
   return (
-    <div className="p-3 border-b-2 border-dotted mb-3">
+    <div className="p-3 mb-3">
       <Form labelCol={{ span: 6 }} key={cpu.id}>
         <h1 className="py-3 text-lg font-bold">
           CPU{" "}
@@ -63,6 +64,18 @@ export default function CPUForm(props: Props) {
             <FormItem label="Model" name="model" labelCol={{ span: 2 }}>
               <Input value={cpu.model} onChange={handleChange} />
             </FormItem>
+          </Col>
+          <Col span={18}>
+            <FormItem label="Remark" name="remark" labelCol={{ span: 2 }}>
+              <Input value={cpu.remark} onChange={handleChange}></Input>
+            </FormItem>
+          </Col>
+          <Col span={6}>
+            <Button
+              className=" float-end"
+              onClick={() => props.onRemove(cpu.id)}>
+              Remove
+            </Button>
           </Col>
         </Row>
       </Form>
