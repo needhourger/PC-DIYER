@@ -4,7 +4,7 @@ import CPUForm from "@/components/CPUForm";
 import Description from "@/components/Description";
 import MotherBoardForm from "@/components/MotherBoardForm";
 import PageHeader from "@/components/PageHeader";
-import { CPUData, ConfigData } from "@/typs";
+import { CPUData, ConfigData, MotherBoardData } from "@/types";
 import { Button, Layout } from "antd";
 import { useState } from "react";
 
@@ -14,6 +14,8 @@ const FormInit: ConfigData = {
     socket: "",
     model: "",
     price: 0,
+    remark: "",
+    chipset: "",
   },
   cpus: [],
 };
@@ -25,6 +27,7 @@ export default function Home() {
     const newList = [...form.cpus];
     newList[id] = newVal;
     setForm({ ...form, cpus: newList });
+    console.log(newVal);
   };
 
   const handleAddCpu = () => {
@@ -37,7 +40,11 @@ export default function Home() {
       remark: "",
     };
     setForm({ ...form, cpus: [...form.cpus, cpu] });
-    console.log(form);
+  };
+
+  const handleMBChange = (newVal: MotherBoardData) => {
+    setForm({ ...form, motherboard: newVal });
+    console.log(newVal);
   };
 
   const handleCpuRemove = (id: number) => {
@@ -53,7 +60,7 @@ export default function Home() {
         <Description />
       </div>
       <div className="px-10 bg-black h-50">
-        <MotherBoardForm />
+        <MotherBoardForm data={form.motherboard} onChange={handleMBChange} />
         {form.cpus.map((cpu) => (
           <CPUForm
             key={cpu.id}

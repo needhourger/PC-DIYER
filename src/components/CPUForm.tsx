@@ -3,7 +3,7 @@
 import { Form, Input, InputNumber, Select, Row, Col, Button } from "antd";
 import FormItem from "antd/es/form/FormItem";
 import { cpuManufacturer } from "@/libs/data";
-import { CPUData } from "@/typs";
+import { CPUData } from "@/types";
 import { useEffect, useState } from "react";
 interface Props {
   cpu: CPUData;
@@ -19,9 +19,29 @@ export default function CPUForm(props: Props) {
   }, [props.cpu]);
 
   const handleChange = (e: any) => {
-    const { name, value } = e.target;
-    setCpu({ ...cpu, [name]: value });
-    props.onChange(cpu.id - 1, cpu);
+    if (e.target === undefined) return;
+    const { id, value } = e.target;
+    let newVal = { ...cpu, [id]: value };
+    setCpu(newVal);
+    props.onChange(newVal.id - 1, newVal);
+  };
+
+  const handleManufacturerChange = (value: string) => {
+    let newVal = { ...cpu, manufacturer: value };
+    setCpu(newVal);
+    props.onChange(newVal.id - 1, newVal);
+  };
+
+  const handleSocketChange = (value: string) => {
+    let newVal = { ...cpu, socket: value };
+    setCpu(newVal);
+    props.onChange(newVal.id - 1, newVal);
+  };
+
+  const handlePriceChange = (value: any) => {
+    let newVal = { ...cpu, price: value };
+    setCpu(newVal);
+    props.onChange(newVal.id - 1, newVal);
   };
 
   return (
@@ -38,7 +58,7 @@ export default function CPUForm(props: Props) {
                 options={cpuManufacturer}
                 style={{ width: "100%" }}
                 value={cpu.manufacturer}
-                onChange={handleChange}></Select>
+                onChange={handleManufacturerChange}></Select>
             </FormItem>
           </Col>
           <Col span={6}>
@@ -48,7 +68,8 @@ export default function CPUForm(props: Props) {
                 mode="tags"
                 style={{ width: "100%" }}
                 value={cpu.socket}
-                onChange={handleChange}></Select>
+                onChange={handleSocketChange}
+                maxCount={1}></Select>
             </FormItem>
           </Col>
           <Col span={6} offset={6}>
@@ -57,7 +78,7 @@ export default function CPUForm(props: Props) {
                 min={0}
                 addonBefore="$"
                 value={cpu.price}
-                onChange={handleChange}></InputNumber>
+                onChange={handlePriceChange}></InputNumber>
             </FormItem>
           </Col>
           <Col span={18}>

@@ -6,6 +6,7 @@ export interface ConfigData {
 export interface MotherBoardData {
   manufacturer: string;
   socket: string;
+  chipset: string;
   model: string;
   price: number;
   remark: string;
